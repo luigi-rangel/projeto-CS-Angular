@@ -8,7 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventosComponent implements OnInit {
 
-  public eventos: any;
+  public eventos: any = [];
+  public widthImg = 150;
+  public marginImg = 2;
+  public isCollapsed = false;
+  private _filtroLista: string = '';
+
+  public get filtroLista(){
+    return this._filtroLista;
+  }
+
+  public set filtroLista(value: string){
+    this._filtroLista = value;
+  }
+
+  public filtrarEventos(filtrarPor: string): any{
+    filtrarPor = filtrarPor.toLocaleLowerCase();
+    return this.eventos.filter((evento: any) => evento.tema.toLocaleLowerCase().indexOf(filtrarPor) !== -1 || evento.local.toLocaleLowerCase().indexOf(filtrarPor) !== -1)
+  }
 
   constructor(private http: HttpClient) { }
 
