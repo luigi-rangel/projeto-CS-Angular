@@ -33,7 +33,7 @@
         <th class="d-none d-md-table-cell" scope="col">Local</th>
         <th class="" scope="col">Data</th>
         <th class="d-none d-md-table-cell" scope="col">Qtd Pessoas</th>
-        <th class="d-none d-md-table-cell" scope="col">Lote</th>
+        <!-- <th class="d-none d-md-table-cell" scope="col">Lote</th> -->
         <th class="" scope="col">Opções</th>
       </tr>
     </thead>
@@ -57,7 +57,7 @@
         <td class="d-none d-md-table-cell">{{evento.local}}</td>
         <td class="">{{evento.dataEvento | DateTimeFormat}}</td>
         <td class="d-none d-md-table-cell">{{evento.qtdPessoas}}</td>
-        <td class="d-none d-md-table-cell">{{evento.lotes[0].nome | uppercase}}</td>
+        <!-- <td class="d-none d-md-table-cell">{{evento.lotes[0].nome | uppercase}}</td> -->
         <td class="">
           <button type="button" class="btn btn-danger btn-g" tooltip="Excluir" (click)="openModal(template)">
             <i class="{{'fa fa-trash'}}"></i>
