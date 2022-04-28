@@ -111,11 +111,11 @@ namespace ProEventos.API.Controllers
         {
             try
             {
-                var evento = await this.eventoService.UpdateEvento(id, model);
+                var evento = await this.eventoService.GetEventoByIdAsync(id);
                 if (evento == null) return NoContent();
 
                 return await this.eventoService.DeleteEvento(id) ? 
-                    Ok("Deletado.") :
+                    Ok(new {message = "Deletado."}) :
                     throw new Exception("Ocorreu um problema não específico ao tentar deletar Evento");
             }
             catch (Exception ex)

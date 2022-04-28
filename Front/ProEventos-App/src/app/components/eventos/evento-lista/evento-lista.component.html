@@ -33,7 +33,7 @@
         <th class="d-none d-md-table-cell" scope="col">Local</th>
         <th class="" scope="col">Data</th>
         <th class="d-none d-md-table-cell" scope="col">Qtd Pessoas</th>
-        <!-- <th class="d-none d-md-table-cell" scope="col">Lote</th> -->
+        <th class="d-none d-md-table-cell" scope="col">Lote</th>
         <th class="" scope="col">Opções</th>
       </tr>
     </thead>
@@ -57,9 +57,9 @@
         <td class="d-none d-md-table-cell">{{evento.local}}</td>
         <td class="">{{evento.dataEvento | DateTimeFormat}}</td>
         <td class="d-none d-md-table-cell">{{evento.qtdPessoas}}</td>
-        <!-- <td class="d-none d-md-table-cell">{{evento.lotes[0].nome | uppercase}}</td> -->
+        <td class="d-none d-md-table-cell">{{evento.lotes[0]?.nome | uppercase}}</td>
         <td class="">
-          <button type="button" class="btn btn-danger btn-g" tooltip="Excluir" (click)="openModal(template)">
+          <button type="button" class="btn btn-danger btn-g" tooltip="Excluir" (click)="openModal($event, template, evento.id)">
             <i class="{{'fa fa-trash'}}"></i>
           </button>
         </td>
@@ -77,7 +77,7 @@
 
 <ng-template #template>
   <div class="modal-body text-center">
-    <p>Tem certeza que quer deletar este evento?</p>
+    <p>Tem certeza que quer deletar o evento de código {{this.eventoId}}?</p>
     <button type="button" class="btn btn-default" (click)="confirm()" >Sim</button>
     <button type="button" class="btn btn-primary" (click)="decline()" >Não</button>
   </div>
